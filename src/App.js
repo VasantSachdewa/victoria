@@ -18,6 +18,9 @@ function App() {
 
 
 const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 50px;
   background-color: #203040;
   color: white;
