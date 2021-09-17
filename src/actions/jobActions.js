@@ -12,7 +12,7 @@ export const listJobs = (pageNum=1) => async(dispatch) => {
 	});
 	try {
 		const {data} = await Axios.get(
-			`https://0eyhxcqz8d.execute-api.ap-southeast-1.amazonaws.com/kalee/jobs/?page=${pageNum}&pageSize=9`);
+			`https://0eyhxcqz8d.execute-api.ap-southeast-1.amazonaws.com/kalee/jobs/?page=${pageNum}&pageSize=8`);
 		dispatch({
 			type: REQUEST_JOB_SUCCESS,
 			payload: data.results,
