@@ -52,9 +52,8 @@ function Listing() {
 };
 
 
-const Main = styled.main`
-	display: flex;
-	flex-wrap: wrap;
+const Main = styled.div`
+	display: block;
 	height: calc(100vh - 80px);
 	justify-content: center;
 	padding-top: 50px;
@@ -65,7 +64,7 @@ const JobsWraper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 1000px;
+	height: 1100px;
 `
 
 const PaginationWraper = styled.div`
