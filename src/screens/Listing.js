@@ -54,17 +54,14 @@ function Listing() {
 
 const Main = styled.div`
 	display: block;
-	height: calc(100vh - 80px);
 	justify-content: center;
 	padding-top: 50px;
-	height: 1300px;
 `
 
 const JobsWraper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 1100px;
 `
 
 const PaginationWraper = styled.div`
