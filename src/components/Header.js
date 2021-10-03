@@ -9,6 +9,9 @@ function Header() {
 			<Logo>
 				Job Scanner
 			</Logo>
+			<LogInContainer>
+				<button>Login</button>
+			</LogInContainer>
 		</NavBar>
 	);
 
@@ -21,7 +24,7 @@ const NavBar = styled.nav`
 	align-items: center;
 `
 
-const Logo = styled.span`
+const Logo = styled.div`
 	padding-left: 2%;
 	color: #D0DCE4;
 	letter-spacing: 1px;
@@ -29,7 +32,24 @@ const Logo = styled.span`
 	font-size: 2vw;
 	text-shadow: 1px 0 black;
 	cursor: pointer;
-
 `
+
+const LogInContainer = styled.div`
+	position: absolute;
+	right: 0;
+	border-radius: 0.5rem;
+	margin-right: 2%;
+	border: transparent;
+
+	button {
+		padding: 6px 12px;
+		right: 0;
+		border-radius: 0.5rem;
+		background-color: yellow;
+		cursor: pointer;
+		border: transparent;
+	}
+`
+
 
 export default Header;
