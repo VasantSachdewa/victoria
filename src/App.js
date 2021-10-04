@@ -1,17 +1,28 @@
 import React from 'react';
 import Header from './components/Header';
 import Listing from './screens/Listing';
+import Login from './screens/Login';
 import styled from 'styled-components';
+import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Listing></Listing>
-      <Footer>
-        <span>NTTN</span>
-      </Footer>
+        <BrowserRouter>
+          <Header/>
+          <Switch>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/">
+              <Listing/>
+            </Route>
+          </Switch>
+          <Footer>
+            <span>NTTN</span>
+          </Footer>
+        </BrowserRouter>
     </div>
   );
 }
