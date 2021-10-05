@@ -1,23 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
 
 function Login() {
+
+	const formik = useFormik({
+		initialValues: {
+			username: '',
+			password: ''	
+		},
+		validationSchema: Yup.object({
+			username: Yup.string().required('Required'),
+			password: Yup.string().required('Required')
+		}),
+		onSubmit: (values) => {
+			alert(JSON.stringify(values, null, 2));
+		}
+	})
+
 	return (
 		<LoginContainer>
 			<LoginWrap>
 				<LoginImgWrap>
 					<LoginImg src="/images/login-img.png" alt="login-img"/>
 				</LoginImgWrap>
-				<LoginForm>
+				<LoginForm onSubmit={formik.handleSubmit}>
 					<LoginSpan>Member Login</LoginSpan>
 					<InputWrapper>
-						<Input type="text" name="email" placeholder="Email"/>
+						<Input type="text" id="username" placeholder="Username" {...formik.getFieldProps('username')}/>
+						{ formik.touched.username && formik.errors.username ? (
+							<ErrorWrapper>{formik.errors.username}</ErrorWrapper> ) : null } 
 					</InputWrapper>
 					<InputWrapper>
-						<Input type="password" name="password" placeholder="Password"/>
+						<Input type="password" id="password" placeholder="Password" {...formik.getFieldProps('password')}/>
+						{ formik.touched.password && formik.errors.password ? (
+							<ErrorWrapper>{formik.errors.password}</ErrorWrapper> ) : null } 
 					</InputWrapper>
 					<LoginButtonContainer>
-						<LoginButton> Login </LoginButton>
+						<LoginButton type="submit"> Login </LoginButton>
 					</LoginButtonContainer>
 					<TextContainer1>
 						<TextLink href="#">Forgot Username / Password</TextLink>
@@ -135,5 +157,11 @@ const TextLink = styled.a`
 const TextContainer2 = styled.div`
 	padding-top: 136px;
 	text-align: center!important;
-
 `
+
+const ErrorWrapper = styled.div`
+	color: red;
+	padding-left: 20px;
+	padding-top: 2px;
+	font-size: 12px;
+` 
